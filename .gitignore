@@ -26,30 +26,25 @@ venv/
 env/
 .env/
 .venv/
+.conda/
+*.env
 
-# IDEs and editors
+# IDEs and Editors
 .idea/
 .vscode/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
 
 # Jupyter Notebooks
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
-# Logs
+# Logs and Databases
 *.log
-logs/
-
-# Machine Learning
-*.pkl
-*.model
-*.h5
-*.hdf5
-
-# Performance Profiling
-*.prof
-*.lprof
+*.sqlite3
+*.db
 
 # OS Generated Files
 .DS_Store
@@ -59,7 +54,41 @@ logs/
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
+
+# Testing and Coverage
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+# Machine Learning and Profiling
+*.pkl
+*.model
+*.h5
+*.hdf5
+*.prof
+*.lprof
 
 # CodeAlchemy Specific
 .performance_cache/
 .code_insights/
+.optimization_logs/
+
+# Temporary Files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Compiled Python
+*.pyc
+*.pyo
+*.pyd
+
+# Security and Sensitive Data
+*.key
+*.pem
+*.cert
+secrets.yaml
+.secrets/

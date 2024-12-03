@@ -1,0 +1,147 @@
+# CodeInsight Configuration File
+
+# Analysis Settings
+analysis:
+  confidence_threshold: 0.7
+  max_file_size: 1000000  # 1MB
+  excluded_patterns:
+    - "*.test.py"
+    - "*.min.js"
+    - "*_test.go"
+    - "test_*.py"
+    - "*_spec.rb"
+  include_patterns:
+    - "*.py"
+    - "*.js"
+    - "*.java"
+    - "*.go"
+    - "*.rb"
+  max_files_per_analysis: 1000
+
+# AI Model Settings
+models:
+  embedding:
+    model_name: "code-embedding-v2"
+    context_window: 1000
+    batch_size: 32
+    device: "cuda"  # or "cpu"
+    quantization: "int8"
+    
+  understanding:
+    model_name: "code-understanding-v2"
+    temperature: 0.7
+    max_tokens: 500
+    top_p: 0.95
+    
+  pattern_detection:
+    confidence_threshold: 0.8
+    min_pattern_size: 3
+    max_pattern_size: 50
+    similarity_threshold: 0.85
+    
+  security:
+    scan_dependencies: true
+    check_owasp_top_10: true
+    severity_threshold: "medium"
+    custom_rules_path: "rules/security/"
+    
+  performance:
+    profile_memory: true
+    analyze_complexity: true
+    suggest_optimizations: true
+    max_profile_time: 30  # seconds
+
+# Language-Specific Settings
+languages:
+  python:
+    parser: "tree-sitter"
+    max_line_length: 88
+    style_guide: "pep8"
+    additional_checks:
+      - "type_checking"
+      - "complexity"
+      - "docstring"
+      
+  javascript:
+    parser: "babel"
+    ecma_version: 2021
+    jsx: true
+    typescript: true
+    
+  java:
+    parser: "java-parser"
+    source_version: "11"
+    target_version: "11"
+
+# Output Settings
+output:
+  format: "markdown"  # markdown, html, json
+  detail_level: "high"  # low, medium, high
+  include_code_snippets: true
+  max_suggestions: 10
+  group_by_severity: true
+  color_output: true
+
+# Logging Settings
+logging:
+  level: "INFO"
+  file: "logs/codeinsight.log"
+  max_size: "100MB"
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Cache Settings
+cache:
+  enabled: true
+  directory: ".cache"
+  max_size: "1GB"
+  ttl: 86400  # 24 hours
+  compression: true
+
+# Security Settings
+security:
+  api_key_patterns:
+    - "[a-zA-Z0-9]{32}"
+    - "[a-zA-Z0-9-_]{40}"
+  sensitive_keywords:
+    - "password"
+    - "secret"
+    - "api_key"
+    - "token"
+  excluded_vulnerabilities:
+    - "INFO"
+    - "LOW"
+
+# Performance Settings
+performance:
+  timeout: 300  # seconds
+  max_memory: "4GB"
+  parallel_analysis: true
+  num_workers: 4
+  batch_processing: true
+  batch_size: 50
+
+# Documentation Settings
+documentation:
+  generate_diagrams: true
+  include_examples: true
+  diagram_format: "mermaid"
+  max_diagram_depth: 3
+  theme: "default"
+
+# Plugin Settings
+plugins:
+  directory: "plugins"
+  enabled:
+    - "custom_rules"
+    - "report_generator"
+    - "code_metrics"
+  disabled:
+    - "experimental"
+    
+# Development Settings
+development:
+  debug: false
+  profile_api: false
+  mock_responses: false
+  test_mode: false

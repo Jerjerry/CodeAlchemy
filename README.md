@@ -91,8 +91,8 @@ See the full `LICENSE` file for complete details.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/codeinsight.git
-cd codeinsight
+git clone https://github.com/Jerjerry/CodeAlchemy.git
+cd CodeAlchemy
 
 # Create virtual environment (recommended)
 python -m venv venv
